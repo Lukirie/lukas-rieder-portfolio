@@ -5,20 +5,20 @@ const workItems = [
   {
     type: 'youtube' as const,
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Replace with actual video
-    title: 'Live Concert Mix',
+    title: 'Live Concert',
     description: 'Full live sound engineering for sold-out arena show',
     featured: true,
   },
   {
     type: 'spotify' as const,
-    url: 'https://open.spotify.com/embed/album/4LH4d3cOWNNsVw41Gqt2kv', // Replace with actual Spotify link
+    url: 'https://open.spotify.com/embed/album/1kgcBzBRnBrqqef8XkryYx', // Replace with actual Spotify link
     title: 'Album Production',
-    description: 'Recording and mixing for indie rock album release',
+    description: 'Recording and mixing for rock album release',
     featured: false,
   },
   {
     type: 'youtube' as const,
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Replace with actual video
+    url: 'https://www.youtube.com/watch?v=BAYFrHkABJs&list=RDBAYFrHkABJs&start_radio=1', // Replace with actual video
     title: 'Sound Design Reel',
     description: 'Collection of sound design work for film and games',
     featured: false,
@@ -30,6 +30,7 @@ const workItems = [
     description: 'Behind the scenes recording session',
     featured: false,
   },
+  
 ];
 
 const WorkSection = () => {

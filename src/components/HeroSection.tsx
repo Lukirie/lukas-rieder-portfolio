@@ -55,7 +55,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
         <div className="animate-slide-up">
           <p className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm mb-4 sm:mb-6">
-            Sound Engineer & Sound Designer
+            Sound Technician & Sound Designer
           </p>
           <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 sm:mb-8">
             Lukas Rieder

@@ -9,7 +9,7 @@ const Footer = () => {
             © {currentYear} Lukas Rieder. All rights reserved.
           </p>
           <p className="text-muted-foreground text-xs sm:text-sm text-center sm:text-right">
-            Sound Engineer & Sound Designer
+            Sound Technician & Sound Designer
           </p>
         </div>
       </div>

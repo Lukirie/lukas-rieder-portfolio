@@ -17,25 +17,25 @@ const ContactSection = () => {
           {/* Contact info */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
             <a
-              href="mailto:hello@lukasrieder.com"
+              href="mailto:info@lukasrieder.at"
               className="group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors"
             >
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
               <span className="text-xs sm:text-sm text-muted-foreground">Email</span>
-              <span className="font-medium text-sm sm:text-base break-all">hello@lukasrieder.com</span>
+              <span className="font-medium text-sm sm:text-base break-all">info@lukasrieder.at</span>
             </a>
 
             <a
-              href="tel:+1234567890"
+              href="tel:+43 676 951 312 4"
               className="group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors"
             >
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
               <span className="text-xs sm:text-sm text-muted-foreground">Phone</span>
-              <span className="font-medium text-sm sm:text-base">+1 (234) 567-890</span>
+              <span className="font-medium text-sm sm:text-base">+43 676 951 312 4</span>
             </a>
 
             <div className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-lg bg-card border border-border">
@@ -43,7 +43,7 @@ const ContactSection = () => {
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
               <span className="text-xs sm:text-sm text-muted-foreground">Location</span>
-              <span className="font-medium text-sm sm:text-base">Your City, Country</span>
+              <span className="font-medium text-sm sm:text-base">Klagenfurt, Graz</span>
             </div>
           </div>
 

@@ -10,7 +10,7 @@ const AboutSection = () => {
             <div className="aspect-[4/5] rounded-lg overflow-hidden bg-secondary max-w-sm mx-auto md:max-w-none">
               <img
                 src={lukasPortrait}
-                alt="Lukas Rieder - Sound Engineer"
+                alt="Lukas Rieder - Technician"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
