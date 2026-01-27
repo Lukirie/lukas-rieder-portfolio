@@ -2,58 +2,58 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 md:py-32">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-16 sm:py-24 md:py-32">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           {/* Section header */}
-          <h2 className="section-heading mb-4">
+          <h2 className="section-heading mb-3 sm:mb-4">
             Let's <span className="text-gradient">Work Together</span>
           </h2>
-          <p className="text-muted-foreground mb-12 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-8 sm:mb-12 max-w-xl mx-auto text-sm sm:text-base">
             Have a project in mind? I'd love to hear about it. Whether it's a studio session, 
             live event, or creative collaboration—let's create something memorable.
           </p>
 
           {/* Contact info */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
             <a
               href="mailto:hello@lukasrieder.com"
-              className="group flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors"
+              className="group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors"
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <Mail className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
-              <span className="text-sm text-muted-foreground">Email</span>
-              <span className="font-medium">hello@lukasrieder.com</span>
+              <span className="text-xs sm:text-sm text-muted-foreground">Email</span>
+              <span className="font-medium text-sm sm:text-base break-all">hello@lukasrieder.com</span>
             </a>
 
             <a
               href="tel:+1234567890"
-              className="group flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors"
+              className="group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors"
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <Phone className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
-              <span className="text-sm text-muted-foreground">Phone</span>
-              <span className="font-medium">+1 (234) 567-890</span>
+              <span className="text-xs sm:text-sm text-muted-foreground">Phone</span>
+              <span className="font-medium text-sm sm:text-base">+1 (234) 567-890</span>
             </a>
 
-            <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-primary" />
+            <div className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-lg bg-card border border-border">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
-              <span className="text-sm text-muted-foreground">Location</span>
-              <span className="font-medium">Your City, Country</span>
+              <span className="text-xs sm:text-sm text-muted-foreground">Location</span>
+              <span className="font-medium text-sm sm:text-base">Your City, Country</span>
             </div>
           </div>
 
           {/* Social links placeholder */}
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 flex-wrap">
             {['Instagram', 'LinkedIn', 'SoundCloud'].map((social) => (
               <a
                 key={social}
                 href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 {social}
               </a>
