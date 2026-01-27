@@ -7,38 +7,66 @@ const workItems = [
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Replace with actual video
     title: 'Live Concert Mix',
     description: 'Full live sound engineering for sold-out arena show',
+    featured: true,
   },
   {
     type: 'spotify' as const,
     url: 'https://open.spotify.com/embed/album/4LH4d3cOWNNsVw41Gqt2kv', // Replace with actual Spotify link
     title: 'Album Production',
     description: 'Recording and mixing for indie rock album release',
+    featured: false,
   },
   {
     type: 'youtube' as const,
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Replace with actual video
     title: 'Sound Design Reel',
     description: 'Collection of sound design work for film and games',
+    featured: false,
+  },
+  {
+    type: 'video' as const,
+    url: '', // Add your own video URL here
+    title: 'Studio Session',
+    description: 'Behind the scenes recording session',
+    featured: false,
   },
 ];
 
 const WorkSection = () => {
+  // Filter out items with empty URLs
+  const visibleItems = workItems.filter(item => item.url);
+  const featuredItem = visibleItems.find(item => item.featured);
+  const regularItems = visibleItems.filter(item => !item.featured);
+
   return (
-    <section id="work" className="py-24 md:py-32 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="work" className="py-16 sm:py-24 md:py-32 bg-secondary/30 min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="section-heading mb-4">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="section-heading mb-3 sm:mb-4">
             Selected <span className="text-gradient">Work</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
             A curated selection of studio recordings, live productions, and sound design projects.
           </p>
         </div>
 
-        {/* Work grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {workItems.map((item, index) => (
+        {/* Featured work - full width on all screens */}
+        {featuredItem && (
+          <div className="mb-8 sm:mb-12">
+            <MediaEmbed
+              type={featuredItem.type}
+              url={featuredItem.url}
+              title={featuredItem.title}
+              description={featuredItem.description}
+              featured={true}
+            />
+          </div>
+        )}
+
+        {/* Work grid - responsive */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          {regularItems.map((item, index) => (
             <MediaEmbed
               key={index}
               type={item.type}
@@ -50,7 +78,7 @@ const WorkSection = () => {
         </div>
 
         {/* Additional note */}
-        <p className="text-center text-muted-foreground text-sm mt-12">
+        <p className="text-center text-muted-foreground text-xs sm:text-sm mt-10 sm:mt-16">
           Want to see more? <a href="#contact" className="text-primary hover:underline">Get in touch</a> for a complete portfolio.
         </p>
       </div>
