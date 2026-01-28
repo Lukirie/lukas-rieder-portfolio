@@ -78,7 +78,7 @@ const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVide
       <video
         ref={videoRef}
         src={src}
-        className="w-full h-96 sm:h-[50rem] object-contain cursor-pointer"
+        className="w-full h-[28rem] sm:h-[32rem] object-contain cursor-pointer"
         loop
         playsInline
         muted={isMuted}
@@ -107,33 +107,34 @@ const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVide
         </div>
       )}
       
-      {/* Simple volume controls - inline */}
-      <div className="absolute top-4 right-10 flex items-center gap-2 bg-background/80 rounded-full px-3 py-2">
-        <button
-          onClick={handleVideoClick}
-          className="w-6 h-6 rounded-full flex items-center justify-center transition-colors hover:bg-primary/20"
-        >
-          {isMuted ? (
-            <VolumeX className="w-3 h-3 text-foreground" />
-          ) : (
-            <Volume2 className="w-3 h-3 text-foreground" />
-          )}
-        </button>
-        
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.1"
-          value={isMuted ? 0 : volume}
-          onChange={handleVolumeChange}
-          className="w-16 h-1 bg-muted rounded-lg appearance-none cursor-pointer"
-        />
-      </div>
-
       {/* Title and description */}
-      <div className="mt-4">
-        <h3 className="font-semibold text-lg mb-2">{title}</h3>
+      <div className="mt-0">
+        {/* Volume controls above title */}
+        <div className="flex items-center justify-center gap-2 bg-background/80 rounded-full px-3 py-2 mb-2">
+          <button
+            onClick={handleVideoClick}
+            className="w-6 h-6 rounded-full flex items-center justify-center transition-colors hover:bg-primary/20"
+          >
+            {isMuted ? (
+              <VolumeX className="w-3 h-3 text-foreground" />
+            ) : (
+              <Volume2 className="w-3 h-3 text-foreground" />
+            )}
+          </button>
+          
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value={isMuted ? 0 : volume}
+            onChange={handleVolumeChange}
+            className="w-16 h-1 bg-muted rounded-lg appearance-none cursor-pointer"
+          />
+        </div>
+        
+        <h3 className="font-semibold text-lg mb-1">{title}</h3>
+        
         <div 
           className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line"
           dangerouslySetInnerHTML={{

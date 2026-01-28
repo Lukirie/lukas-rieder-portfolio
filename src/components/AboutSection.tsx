@@ -2,7 +2,7 @@ import lukasPortrait from '@/assets/lukas-portrait.jpg';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-16 sm:py-24 md:py-32">
+    <section id="about" className="py-6 sm:py-24 md:py-32">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
           {/* Image */}
