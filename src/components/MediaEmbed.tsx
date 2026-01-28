@@ -102,7 +102,12 @@ const MediaEmbed = ({ type, url, title, description, featured = false }: MediaEm
       <div className="p-4 sm:p-5">
         <h3 className="font-display font-semibold text-base sm:text-lg mb-1">{title}</h3>
         {description && (
-          <p className="text-muted-foreground text-xs sm:text-sm">{description}</p>
+          <div 
+            className="text-muted-foreground text-xs sm:text-sm whitespace-pre-line"
+            dangerouslySetInnerHTML={{
+              __html: description.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            }}
+          />
         )}
       </div>
     </div>

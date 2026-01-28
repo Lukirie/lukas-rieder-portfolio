@@ -26,25 +26,25 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-3 sm:space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                With over a decade of experience in audio engineering and sound design, 
-                I bring a meticulous ear and creative vision to every project. From the 
-                controlled environment of the studio to the dynamic energy of live events, 
-                I craft soundscapes that resonate.
+                I am Lukas, 24 years old, a live musician, sound technician and FOH engineer based in Klagenfurt.
+                With experience in live sound, sound design and music production, I approach every project 
+                with precision and a strong hands-on mindset.
               </p>
               <p>
-                My work spans recording, mixing, and mastering for artists across genres, 
-                as well as sound design for film, games, and interactive media. I believe 
-                that great audio should be felt as much as heard.
+               I work across live performances, events and studio environments, always focusing on clarity, 
+               reliability and musical intent. My goal is to create sound that connects artists, audiences 
+               and spaces in a natural and meaningful way.
               </p>
               <p>
-                Based in [Your City], I collaborate with artists, producers, and creative 
-                teams worldwide to bring their sonic visions to life.
+               My background combines hands-on audio work, ongoing studies in Sound Design and a Bachelor
+               in International Marketing and Sales Management. I collaborate with musicians and event 
+               professionals to deliver effective and engaging sound experiences.
               </p>
             </div>
 
             {/* Skills/Services */}
             <div className="pt-4 sm:pt-6 grid grid-cols-2 gap-3 sm:gap-4 max-w-sm mx-auto md:max-w-none">
-              {['Studio Recording', 'Live Sound', 'Mixing & Mastering', 'Sound Design'].map(
+              {['FOH Engineering', 'Mixing', 'Recording', 'Production', 'Sound Design'].map(
                 (skill) => (
                   <div
                     key={skill}
