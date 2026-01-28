@@ -22,7 +22,7 @@ const MediaEmbed = ({ type, url, title, description, featured = false }: MediaEm
 
   const renderEmbed = () => {
     switch (type) {
-      case 'youtube':
+      case 'youtube': {
         const youtubeId = getYoutubeId(url);
         const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
         
@@ -58,8 +58,9 @@ const MediaEmbed = ({ type, url, title, description, featured = false }: MediaEm
             )}
           </div>
         );
+      }
 
-      case 'spotify':
+      case 'spotify': {
         const spotifyEmbedUrl = url.includes('embed')
           ? url
           : url.replace('open.spotify.com', 'open.spotify.com/embed');
@@ -73,24 +74,29 @@ const MediaEmbed = ({ type, url, title, description, featured = false }: MediaEm
             loading="lazy"
           />
         );
+      }
 
-      case 'video':
+      case 'video': {
         return (
-          <div className={`embed-container ${featured ? 'embed-container-featured' : ''}`}>
-            <video
-              src={url}
-              title={title}
-              controls
-              playsInline
-              muted
-              preload="metadata"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+          <video
+            controls
+            playsInline
+            className="w-full rounded-lg"
+            poster=""
+          >
+            <source src={url} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        );
+      }
+
+      default: {
+        return (
+          <div className="p-4 border rounded-lg">
+            <p>Unsupported media type</p>
           </div>
         );
-
-      default:
-        return null;
+      }
     }
   };
 
