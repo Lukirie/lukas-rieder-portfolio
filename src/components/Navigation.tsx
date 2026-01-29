@@ -17,7 +17,7 @@ const Navigation = () => {
       setScrolled(window.scrollY > 50);
 
       // Determine active section
-      const sections = navItems.map(item => item.href.substring(1));
+      const sections = navItems.map(item => item.href.replace('#/#', ''));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element && window.scrollY >= element.offsetTop - 200) {
