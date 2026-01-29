@@ -87,7 +87,7 @@ const WorkSection = () => {
           {/* Video grid - 4 portrait videos side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-7xl mx-auto">
             {localVideos.map((video, index) => (
-              <MobileVideo
+              <LocalVideo
                 key={index}
                 src={video.src}
                 title={video.title}

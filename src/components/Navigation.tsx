@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
-  { label: 'About', href: '#/#about' },
-  { label: 'Work', href: '#/#work' },
-  { label: 'Contact', href: '#/#contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Work', href: '#work' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const Navigation = () => {
@@ -17,7 +17,7 @@ const Navigation = () => {
       setScrolled(window.scrollY > 50);
 
       // Determine active section
-      const sections = navItems.map(item => item.href.replace('#/#', ''));
+      const sections = navItems.map(item => item.href.replace('#', ''));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element && window.scrollY >= element.offsetTop - 200) {

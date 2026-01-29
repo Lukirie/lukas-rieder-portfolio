@@ -82,7 +82,6 @@ const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVide
         loop
         playsInline
         muted={isMuted}
-        autoPlay
         preload="metadata"
         onLoadStart={() => setIsLoading(true)}
         onCanPlay={handleVideoLoad}
