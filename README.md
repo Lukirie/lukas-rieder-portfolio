@@ -2,71 +2,59 @@
 
 Sound Technician & Sound Designer
 
-## Project Overview
-
-This is the personal portfolio website for Lukas Rieder, showcasing work in sound engineering, sound design, and audio production for studio recordings, live performances, and creative productions.
-
-## Tech Stack
-
-- **Framework:** React 18 with TypeScript
-- **Build Tool:** Vite
-- **Styling:** Tailwind CSS with shadcn/ui components
-- **Routing:** React Router DOM
-- **Icons:** Lucide React
-- **Deployment:** GitHub Pages
-
-## Local Development
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm
-
-### Installation
+## ⚡ Quick Start
 
 ```bash
 git clone https://github.com/lukir/lukas-rieder-portfolio.git
 cd lukas-rieder-portfolio
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:8080`
+Open `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🛠️ Tech Stack
 
-**Use GitHub Codespaces**
+- **React 18** with TypeScript
+- **Tailwind CSS** for styling
+- **Vite** for building
+- **React Router** for navigation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📁 Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/     # React components
+├── pages/         # Page components
+├── assets/        # Images, videos
+└── main.tsx       # App entry point
+```
 
-This project is built with:
+## 🚀 Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### GitHub Pages
+```bash
+npm run build
+# Deploy dist folder to GitHub Pages
+```
 
-## How can I deploy this project?
+### Alternative Options
+- **Netlify Drop:** Drag `dist` folder to netlify.com/drop
+- **Vercel:** Connect repository to vercel.com
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 📋 Available Commands
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm run preview  # Preview build
+npm run lint     # Check code
+```
 
-Yes, you can!
+## 👨‍💻 For Developers
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This is a standard React + Vite + TypeScript project. No special setup required.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📄 License
+
+Private project.
