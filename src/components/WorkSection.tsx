@@ -43,9 +43,9 @@ const youtubeVideos = [
   },
   {
     type: 'youtube' as const,
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    title: 'Studio Recording Session',
-    description: '',
+    url: 'https://www.youtube.com/watch?v=SWNIiu4zLVw',
+    title: "'Kindred' for The North Face",
+    description: 'Talents: @katarina.ptg @prinzik @crazy.ass.guy\nDirector: @noahbonevie\nDoP: @peter.verhounik\nGaffer: @a_man_called_aman\nPAs: @katarismus @http_magda\nEdit: @mariosahbi & @noahbonevie\nColor: @peter.verhounik\n\nMusic: Gregor Schmitz\nSound Design: Lukas Rieder\n\nSpec movie for The North Face',
   },
 ];
 

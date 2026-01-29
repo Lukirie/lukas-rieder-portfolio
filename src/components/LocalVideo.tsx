@@ -35,55 +35,46 @@ const LocalVideo = ({ src, title, description, isActive = false, onActivate }: L
     const video = videoRef.current;
     if (!video) return;
 
-    // Set initial volume
-    video.volume = volume;
+    // Set volume to 100%
+    video.volume = 1.0;
 
-    // Auto-play muted videos
+    // Mute if not active, otherwise use local mute state
+    video.muted = !isActive || isMuted;
+
+    // Auto-play videos
     if (video.paused && isPlaying) {
-      video.play().catch(console.error);
+      video.play().catch(() => {
+        setIsPlaying(false);
+      });
     }
+  }, [isPlaying, isActive, isMuted]);
 
-    // Only one video can have sound
-    if (!isActive && !isMuted) {
-      video.muted = true;
-      setIsMuted(true);
-    }
-  }, [isActive, isMuted, isPlaying, volume]);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    
+    video.volume = 1.0;
+  }, []);
 
   const handleVideoClick = () => {
     onActivate();
     const video = videoRef.current;
     if (!video) return;
 
+    // If active, toggle mute state
+    if (isActive) {
+      setIsMuted(!isMuted);
+    }
+
     // Toggle play/pause state
     if (isPlaying) {
       video.pause();
       setIsPlaying(false);
     } else {
-      // Try to play, handle autoplay restrictions
-      video.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {
-        // Autoplay failed, just unmute
-        const newMutedState = !isMuted;
-        video.muted = newMutedState;
-        setIsMuted(newMutedState);
+      video.play().catch(() => {
+        setIsPlaying(false);
       });
-    }
-  };
-
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-    
-    const video = videoRef.current;
-    if (video) {
-      video.volume = newVolume;
-      // Unmute if volume is increased from 0
-      if (newVolume > 0 && isMuted) {
-        video.muted = false;
-        setIsMuted(false);
-      }
+      setIsPlaying(true);
     }
   };
 
