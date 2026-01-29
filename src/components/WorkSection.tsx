@@ -38,8 +38,8 @@ const youtubeVideos = [
   {
     type: 'youtube' as const,
     url: 'https://www.youtube.com/watch?v=BAYFrHkABJs',
-    title: 'Writing, Recording, Mixing',
-    description: 'Standby was the first production realized in our self-built recording studio. I was responsible for the complete music production, including recording and mixing. The track is part of a rock concept album of my Band FLAVOR AMP about addiction and dependency. The lyric video was created by Jacob Mikula (@meaku.arts).',
+    title: 'Standby - Flavor Amp',
+    description: '**Writing: Lukas Kotschnig, Lukas Rieder, Alex Glantschnig, Clemens Bärnthaler**\n**Recording, Mixing: Lukas Rieder**\n\nStandby was the first production realized in our self-built recording studio. I was responsible for the complete music production, including recording and mixing. The track is part of a rock concept album of my Band FLAVOR AMP about addiction and dependency. The lyric video was created by Jacob Mikula (@meaku.arts).',
   },
   {
     type: 'youtube' as const,

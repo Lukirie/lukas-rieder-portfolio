@@ -141,30 +141,6 @@ const LocalVideo = ({ src, title, description, isActive = false, onActivate }: L
       
       {/* Title and description */}
       <div className="mt-0">
-        {/* Volume controls above title */}
-        <div className="flex items-center justify-center gap-2 bg-background/80 rounded-full px-3 py-2 mb-2">
-          <button
-            onClick={handleVideoClick}
-            className="w-8 h-8 sm:w-6 sm:h-6 rounded-full flex items-center justify-center transition-colors hover:bg-primary/20"
-          >
-            {isMuted ? (
-              <VolumeX className="w-4 h-4 sm:w-3 sm:h-3 text-foreground" />
-            ) : (
-              <Volume2 className="w-4 h-4 sm:w-3 sm:h-3 text-foreground" />
-            )}
-          </button>
-          
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={isMuted ? 0 : volume}
-            onChange={handleVolumeChange}
-            className="w-20 sm:w-16 h-2 bg-muted rounded-lg appearance-none cursor-pointer"
-          />
-        </div>
-        
         <h3 className="font-semibold text-lg mb-1">{title}</h3>
         
         <div 
