@@ -41,10 +41,21 @@ const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVide
     const video = videoRef.current;
     if (!video) return;
 
-    // Toggle mute state
-    const newMutedState = !isMuted;
-    video.muted = newMutedState;
-    setIsMuted(newMutedState);
+    // Toggle play/pause state
+    if (isPlaying) {
+      video.pause();
+      setIsPlaying(false);
+    } else {
+      // Try to play, handle autoplay restrictions
+      video.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
+        // Autoplay failed, just unmute
+        const newMutedState = !isMuted;
+        video.muted = newMutedState;
+        setIsMuted(newMutedState);
+      });
+    }
   };
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {

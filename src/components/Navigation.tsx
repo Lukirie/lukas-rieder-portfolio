@@ -113,7 +113,7 @@ const Navigation = () => {
               href={item.href}
               onClick={handleNavClick}
               className={`font-display text-3xl font-semibold tracking-tight transition-colors ${
-                activeSection === item.href.substring(1) ? 'text-primary' : 'text-foreground hover:text-primary'
+                activeSection === item.href.replace('#', '') ? 'text-primary' : 'text-foreground hover:text-primary'
               }`}
             >
               {item.label}
