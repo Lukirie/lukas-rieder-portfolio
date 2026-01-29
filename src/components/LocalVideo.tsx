@@ -124,12 +124,12 @@ const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVide
         <div className="flex items-center justify-center gap-2 bg-background/80 rounded-full px-3 py-2 mb-2">
           <button
             onClick={handleVideoClick}
-            className="w-6 h-6 rounded-full flex items-center justify-center transition-colors hover:bg-primary/20"
+            className="w-8 h-8 sm:w-6 sm:h-6 rounded-full flex items-center justify-center transition-colors hover:bg-primary/20"
           >
             {isMuted ? (
-              <VolumeX className="w-3 h-3 text-foreground" />
+              <VolumeX className="w-4 h-4 sm:w-3 sm:h-3 text-foreground" />
             ) : (
-              <Volume2 className="w-3 h-3 text-foreground" />
+              <Volume2 className="w-4 h-4 sm:w-3 sm:h-3 text-foreground" />
             )}
           </button>
           
@@ -140,7 +140,7 @@ const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVide
             step="0.1"
             value={isMuted ? 0 : volume}
             onChange={handleVolumeChange}
-            className="w-16 h-1 bg-muted rounded-lg appearance-none cursor-pointer"
+            className="w-20 sm:w-16 h-2 bg-muted rounded-lg appearance-none cursor-pointer"
           />
         </div>
         
