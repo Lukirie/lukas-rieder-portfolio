@@ -47,17 +47,31 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Social links placeholder */}
-          <div className="flex items-center justify-center gap-4 sm:gap-6 flex-wrap">
-            {['Instagram', 'LinkedIn', 'SoundCloud'].map((social) => (
-              <a
-                key={social}
-                href="#"
-                className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                {social}
-              </a>
-            ))}
+          {/* Social links */}
+          <div className="flex items-center justify-center gap-4 sm:gap-6 flex-wrap mb-6">
+            <a
+              href="https://www.instagram.com/lukiriee/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://open.spotify.com/intl-de/artist/6fkO0yKCX7VW1UFtJjPbQf?si=laXyQoZ0SYGYjpNUlUlSbw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              Spotify
+            </a>
+          </div>
+
+          {/* Impressum */}
+          <div className="text-xs text-muted-foreground/70">
+            <p>Lukas Rieder</p>
+            <p>Lavendelweg 9</p>
+            <p>9130 Poggersdorf</p>
           </div>
         </div>
       </div>

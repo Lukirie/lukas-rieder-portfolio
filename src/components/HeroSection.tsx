@@ -1,11 +1,11 @@
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
-// Configuration for hero background video
-// Replace with your actual video URL or leave empty for static background
+// Configuration for hero background
+// Replace with your actual image/video URL
 const heroConfig = {
   videoUrl: '', // e.g., 'https://example.com/hero-video.mp4' or '/videos/hero.mp4'
-  fallbackImage: '', // Optional fallback image URL
+  backgroundImage: '', // e.g., '/images/hero-background.jpg' or 'https://example.com/image.jpg'
   showVideo: false, // Set to true when you have a video URL
 };
 
@@ -30,11 +30,11 @@ const HeroSection = () => {
         </video>
       )}
 
-      {/* Fallback/Static background */}
-      {heroConfig.fallbackImage && !shouldShowVideo && (
+      {/* Static background image */}
+      {heroConfig.backgroundImage && !shouldShowVideo && (
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroConfig.fallbackImage})` }}
+          style={{ backgroundImage: `url(${heroConfig.backgroundImage})` }}
         />
       )}
 
@@ -61,8 +61,7 @@ const HeroSection = () => {
             Lukas Rieder
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-4">
-            Crafting immersive audio experiences for studio recordings, 
-            live performances, and creative productions.
+            Sound design and audio production for studio, live, and creative projects.
           </p>
         </div>
       </div>

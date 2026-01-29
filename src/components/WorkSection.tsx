@@ -223,7 +223,7 @@ const WorkSection = () => {
 
         {/* Additional note */}
         <p className="text-center text-muted-foreground text-xs sm:text-sm mt-10 sm:mt-16">
-          Want to see more? <a href="#contact" className="text-primary hover:underline">Get in touch</a> for a complete portfolio.
+          Want to see more? <a href="#contact" className="text-primary hover:underline">Get in touch</a> for more projects.
         </p>
       </div>
     </section>
