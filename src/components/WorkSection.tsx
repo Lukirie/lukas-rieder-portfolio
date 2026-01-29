@@ -38,14 +38,14 @@ const youtubeVideos = [
   {
     type: 'youtube' as const,
     url: 'https://www.youtube.com/watch?v=BAYFrHkABJs',
-    title: 'Live Sound Engineering',
-    description: 'Complete FOH setup and mixing for live concert',
+    title: 'Writing, Recording, Mixing',
+    description: 'Standby was the first production realized in our self-built recording studio. I was responsible for the complete music production, including recording and mixing. The track is part of a rock concept album of my Band FLAVOR AMP about addiction and dependency. The lyric video was created by Jacob Mikula (@meaku.arts).',
   },
   {
     type: 'youtube' as const,
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     title: 'Studio Recording Session',
-    description: 'Behind the scenes of a professional recording session',
+    description: '',
   },
 ];
 
