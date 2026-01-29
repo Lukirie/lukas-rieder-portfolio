@@ -18,13 +18,13 @@ const LocalVideo = ({ src, title, description, isActive = false, onActivate }: L
   const [isLoading, setIsLoading] = useState(true);
   const [useFallback, setUseFallback] = useState(false);
 
-  // External video URLs for GitHub Pages fallback
+  // External video URLs for GitHub Pages fallback (placeholder videos)
   const getFallbackUrl = (localSrc: string) => {
     const videoMap: { [key: string]: string } = {
-      '/videos/video_1.mp4': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-      '/videos/video_2.mp4': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-      '/videos/video_3.mp4': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-      '/videos/video_4.mp4': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4'
+      '/videos/video_1.mp4': 'https://www.w3schools.com/html/mov_bbb.mp4',
+      '/videos/video_2.mp4': 'https://www.w3schools.com/html/movie.mp4',
+      '/videos/video_3.mp4': 'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4',
+      '/videos/video_4.mp4': 'https://sample-videos.com/video123/mp4/720/for_bigger_blazes_720p_1mb.mp4'
     };
     return videoMap[localSrc] || localSrc;
   };
@@ -95,12 +95,12 @@ const LocalVideo = ({ src, title, description, isActive = false, onActivate }: L
   const handleVideoError = () => {
     setIsLoading(false);
     if (!useFallback) {
-      // Try fallback URL on first error
+      // Try placeholder URL on first error
       setUseFallback(true);
-      console.log('Local video failed, trying fallback:', src);
+      console.log('Local video unavailable, using placeholder:', src);
     } else {
       setHasError(true);
-      console.error('Both local and fallback videos failed:', src);
+      console.error('Video unavailable:', src);
     }
   };
 
