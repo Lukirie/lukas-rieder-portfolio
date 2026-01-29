@@ -4,18 +4,32 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 interface LocalVideoProps {
   src: string;
   title: string;
-  description: string;
-  isActive: boolean;
-  onActivate: () => void;
+  description?: string;
+  isActive?: boolean;
+  onActivate?: () => void;
 }
 
-const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVideoProps) => {
+const LocalVideo = ({ src, title, description, isActive = false, onActivate }: LocalVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [volume, setVolume] = useState(0.5);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [useFallback, setUseFallback] = useState(false);
+
+  // External video URLs for GitHub Pages fallback
+  const getFallbackUrl = (localSrc: string) => {
+    const videoMap: { [key: string]: string } = {
+      '/videos/video_1.mp4': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      '/videos/video_2.mp4': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+      '/videos/video_3.mp4': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+      '/videos/video_4.mp4': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4'
+    };
+    return videoMap[localSrc] || localSrc;
+  };
+
+  const videoSrc = useFallback ? getFallbackUrl(src) : src;
 
   useEffect(() => {
     const video = videoRef.current;
@@ -80,15 +94,21 @@ const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVide
 
   const handleVideoError = () => {
     setIsLoading(false);
-    setHasError(true);
-    console.error('Video failed to load:', src);
+    if (!useFallback) {
+      // Try fallback URL on first error
+      setUseFallback(true);
+      console.log('Local video failed, trying fallback:', src);
+    } else {
+      setHasError(true);
+      console.error('Both local and fallback videos failed:', src);
+    }
   };
 
   return (
     <div className={`relative group cursor-pointer transition-all duration-300 ${isActive ? 'ring-2 ring-primary ring-offset-2 ring-offset-background' : ''} hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20`}>
       <video
         ref={videoRef}
-        src={src}
+        src={videoSrc}
         className="w-full h-[28rem] sm:h-[32rem] object-contain cursor-pointer"
         loop
         playsInline
@@ -99,6 +119,7 @@ const LocalVideo = ({ src, title, description, isActive, onActivate }: LocalVide
         onCanPlay={handleVideoLoad}
         onError={handleVideoError}
         onClick={handleVideoClick}
+        key={videoSrc} // Force re-render when source changes
       />
       
       {/* Loading state */}
