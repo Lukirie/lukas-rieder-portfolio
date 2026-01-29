@@ -1,6 +1,24 @@
+import { useState, useEffect } from 'react';
 import lukasPortrait from '@/assets/lukas-portrait.jpg';
 
 const AboutSection = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Array of images - add your image paths here
+  const images = [
+    lukasPortrait,
+    '/images/Lukas_Rieder_2.jpg',  // Add your second image
+    '/images/Lukas_Rieder_3.jpg',  // Add your third image
+  ];
+
+  // Rotate images with different timing
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, currentImageIndex === 0 ? 7000 : 5000); // 7s for first, 5s for others
+
+    return () => clearInterval(interval);
+  }, [currentImageIndex, images.length]);
   return (
     <section id="about" className="py-6 sm:py-24 md:py-32">
       <div className="container mx-auto px-4 sm:px-6">
@@ -9,8 +27,8 @@ const AboutSection = () => {
           <div className="relative order-1 md:order-1">
             <div className="aspect-[4/5] rounded-lg overflow-hidden bg-secondary max-w-sm mx-auto md:max-w-none">
               <img
-                src={lukasPortrait}
-                alt="Lukas Rieder - Technician"
+                src={images[currentImageIndex]}
+                alt={`Lukas Rieder - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -22,7 +40,7 @@ const AboutSection = () => {
           {/* Content */}
           <div className="space-y-4 sm:space-y-6 order-2 md:order-2 text-center md:text-left">
             <h2 className="section-heading">
-              About <span className="text-gradient">Lukas</span>
+              About <span className="text-gradient">Me</span>
             </h2>
             <div className="space-y-3 sm:space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>

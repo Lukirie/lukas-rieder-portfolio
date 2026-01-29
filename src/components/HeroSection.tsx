@@ -5,7 +5,7 @@ import { useState } from 'react';
 // Replace with your actual image/video URL
 const heroConfig = {
   videoUrl: '', // e.g., 'https://example.com/hero-video.mp4' or '/videos/hero.mp4'
-  backgroundImage: '', // e.g., '/images/hero-background.jpg' or 'https://example.com/image.jpg'
+  backgroundImage: '/images/background_bilddd.jpg', // e.g., '/backround_bild.jpg' or 'https://example.com/image.jpg'
   showVideo: false, // Set to true when you have a video URL
 };
 
@@ -39,15 +39,15 @@ const HeroSection = () => {
       )}
 
       {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/60 to-background" />
       
       {/* Subtle grid pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.0]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
+          backgroundSize: '20px 20px',
         }}
       />
 
