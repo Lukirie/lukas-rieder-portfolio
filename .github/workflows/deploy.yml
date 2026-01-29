@@ -3,8 +3,16 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -18,12 +26,21 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
+        cache: 'npm'
 
     - name: Install dependencies
       run: npm ci
 
-    - name: Build
-      run: npm run build
+    - name: Build with custom domain
+      run: |
+        # Ensure base path is "/" for custom domain
+        npm run build
+        # Verify no stale /lukas-rieder-portfolio/ references
+        echo "Checking for stale base path references..."
+        if grep -r "/lukas-rieder-portfolio/" dist/; then
+          echo "ERROR: Found stale base path references!"
+          exit 1
+        fi
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -34,15 +51,14 @@ jobs:
         path: ./dist
 
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
 
     steps:
     - name: Deploy to GitHub Pages
