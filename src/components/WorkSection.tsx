@@ -3,25 +3,29 @@ import LocalVideo from '@/components/LocalVideo';
 import MobileVideo from '@/components/MobileVideo';
 import MediaEmbed from '@/components/MediaEmbed';
 
-// Local videos - add your actual video paths
-const localVideos = [
+// YouTube videos for GitHub Pages compatibility
+const animatedPosters = [
   {
-    src: '/videos/video_1.mp4',
+    type: 'youtube' as const,
+    url: 'https://youtu.be/dQw4w9WgXcQ',
     title: "I am not into politics",
-    description: '**Visuals by Aylin Aktas  | Sound by Lukas Rieder**\n\nA visual reflection on everyday racism, privilege, and the illusion of neutrality. Handwritten words cover faces, looping the phrase “I’m not really into politics,” exploring how silence protects some while others are forced to navigate a world where their identity is always politicized. Presented as animation and posters, digital and physical.',
+    description: '**Visuals by Aylin Aktas  | Sound by Lukas Rieder**\n\nA visual reflection on everyday racism, privilege, and the illusion of neutrality. Handwritten words cover faces, looping the phrase "I\'m not really into politics," exploring how silence protects some while others are forced to navigate a world where their identity is always politicized. Presented as animation and posters, digital and physical.',
   },
   {
-    src: '/videos/video_2.mp4',
+    type: 'youtube' as const,
+    url: 'https://youtu.be/dQw4w9WgXcQ',
     title: "8030",
-    description: '**Visuals by Lina Sandersfeld | Sound by Lukas Rieder**\n\n8030 explores the insidious normalization of right-wing rhetoric and its impact on women’s rights. It is both a visual and emotional response to a political climate that reframes oppression as tradition.',
+    description: '**Visuals by Lina Sandersfeld | Sound by Lukas Rieder**\n\n8030 explores the insidious normalization of right-wing rhetoric and its impact on women\'s rights. It is both a visual and emotional response to a political climate that reframes oppression as tradition.',
   },
   {
-    src: '/videos/video_4.mp4',
+    type: 'youtube' as const,
+    url: 'https://youtu.be/dQw4w9WgXcQ',
     title: "Alice in Deutschland",
-    description: '**Visuals by Franziska Schiffer | Sound by Lukas Rieder**\n\nThe poster Alice in Deutschland takes a satirical jab at today’s political situation, with a direct critique of the worrying shift in politics. Using the Mad Tea Party not just as a visual element but as a symbol, it portrays the feeling of being stuck in time, 1933, to be exact, just like Alice in Alice in Wonderland at 6 o’clock. The world today feels like we’re caught in a chaotic loop, where the past keeps repeating itself. The goal here is to provoke, criticize, and act as a wake-up call.',
-   },
-    {
-    src: '/videos/video_3.mp4',
+    description: '**Visuals by Franziska Schiffer | Sound by Lukas Rieder**\n\nThe poster Alice in Deutschland takes a satirical jab at today\'s political situation, with a direct critique of the worrying shift in politics. Using the Mad Tea Party not just as a visual element but as a symbol, it portrays the feeling of being stuck in time, 1933, to be exact, just like Alice in Alice in Wonderland at 6 o\'clock. The world today feels like we\'re caught in a chaotic loop, where the past keeps repeating itself. The goal here is to provoke, criticize, and act as a wake-up call.',
+  },
+  {
+    type: 'youtube' as const,
+    url: 'https://youtu.be/dQw4w9WgXcQ',
     title: "Fading Freedoms",
     description: '**Visuals by Julia Hechtl | Sound by Lukas Rieder**\n\nFading Freedoms is a visual exploration of how human rights are gradually erased. Not through sudden destruction, but through slow, unnoticed disappearance. Using light, shadow, and physical materials, this project captures the fragile nature of democracy, free speech and equality. The words fading shadows are strong at first, then dissolving, mirroring the way rights slip away while we are still watching. What remains when everything has faded?',
   },
@@ -81,19 +85,19 @@ const WorkSection = () => {
           </div>
         </div>
 
-        {/* Local videos section */}
+        {/* Animated Posters section */}
         <div className="mb-8">
           <h3 className="text-center text-xl font-semibold mb-4 text-muted-foreground">Animated Posters</h3>
           {/* Video grid - 4 portrait videos side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-7xl mx-auto">
-            {localVideos.map((video, index) => (
-              <LocalVideo
+            {animatedPosters.map((video, index) => (
+              <MediaEmbed
                 key={index}
-                src={video.src}
+                type={video.type}
+                url={video.url}
                 title={video.title}
                 description={video.description}
-                isActive={activeVideoIndex === index}
-                onActivate={() => setActiveVideoIndex(index)}
+                featured={false}
               />
             ))}
           </div>
