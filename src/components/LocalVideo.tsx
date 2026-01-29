@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
 
 interface LocalVideoProps {
   src: string;
@@ -12,8 +12,7 @@ interface LocalVideoProps {
 const LocalVideo = ({ src, title, description, isActive = false, onActivate }: LocalVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-  const [volume, setVolume] = useState(0.5);
+  const [isMuted, setIsMuted] = useState(true); // Start muted
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [useFallback, setUseFallback] = useState(false);
@@ -24,7 +23,8 @@ const LocalVideo = ({ src, title, description, isActive = false, onActivate }: L
       '/videos/video_1.mp4': 'https://www.w3schools.com/html/mov_bbb.mp4',
       '/videos/video_2.mp4': 'https://www.w3schools.com/html/movie.mp4',
       '/videos/video_3.mp4': 'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4',
-      '/videos/video_4.mp4': 'https://sample-videos.com/video123/mp4/720/for_bigger_blazes_720p_1mb.mp4'
+      '/videos/video_4.mp4': 'https://sample-videos.com/video123/mp4/720/for_bigger_blazes_720p_1mb.mp4',
+      '/videos/video_5.mp4': 'https://sample-videos.com/video123/mp4/720/small_buck_bunny_720p_1mb.mp4'
     };
     return videoMap[localSrc] || localSrc;
   };
@@ -38,33 +38,27 @@ const LocalVideo = ({ src, title, description, isActive = false, onActivate }: L
     // Set volume to 100%
     video.volume = 1.0;
 
-    // Mute if not active, otherwise use local mute state
-    video.muted = !isActive || isMuted;
+    // Only active video can have sound, unmute if active
+    if (isActive) {
+      video.muted = false;
+      setIsMuted(false);
+    } else {
+      video.muted = true;
+      setIsMuted(true);
+    }
 
-    // Auto-play videos
-    if (video.paused && isPlaying) {
+    // Auto-play videos for animated posters
+    if (video.paused) {
       video.play().catch(() => {
-        setIsPlaying(false);
+        // Autoplay failed, but that's okay
       });
     }
-  }, [isPlaying, isActive, isMuted]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    
-    video.volume = 1.0;
-  }, []);
+  }, [isActive]);
 
   const handleVideoClick = () => {
     onActivate();
     const video = videoRef.current;
     if (!video) return;
-
-    // If active, toggle mute state
-    if (isActive) {
-      setIsMuted(!isMuted);
-    }
 
     // Toggle play/pause state
     if (isPlaying) {
@@ -103,7 +97,6 @@ const LocalVideo = ({ src, title, description, isActive = false, onActivate }: L
         className="w-full h-[28rem] sm:h-[32rem] object-contain cursor-pointer"
         loop
         playsInline
-        muted={isMuted}
         autoPlay
         preload="metadata"
         onLoadStart={() => setIsLoading(true)}

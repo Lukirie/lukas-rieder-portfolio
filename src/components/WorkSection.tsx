@@ -1,7 +1,85 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { Play } from 'lucide-react';
 import LocalVideo from '@/components/LocalVideo';
 import MobileVideo from '@/components/MobileVideo';
 import MediaEmbed from '@/components/MediaEmbed';
+
+// Special video component with play button for video_5
+const SpecialVideo = ({ src, title, description, isActive, onActivate }: any) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  const videoRef = useRef<any>(null);
+
+  const handleVideoClick = () => {
+    onActivate();
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isPlaying) {
+      video.pause();
+      setIsPlaying(false);
+    } else {
+      video.play().catch(() => {
+        setIsPlaying(false);
+      });
+      setIsPlaying(true);
+    }
+  };
+
+  const handleVideoLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
+
+  const handleVideoError = () => {
+    setIsLoading(false);
+    setHasError(true);
+  };
+
+  return (
+    <div className="relative group cursor-pointer transition-all duration-300">
+      <video
+        ref={videoRef}
+        src={src}
+        className="w-full h-full object-contain cursor-pointer"
+        loop
+        playsInline
+        preload="metadata"
+        onLoadStart={() => setIsLoading(true)}
+        onCanPlay={handleVideoLoad}
+        onError={handleVideoError}
+        onClick={handleVideoClick}
+      />
+      
+      {/* Play button overlay */}
+      {!isPlaying && !isLoading && !hasError && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
+            <Play className="w-8 h-8 text-white ml-1" />
+          </div>
+        </div>
+      )}
+      
+      {/* Loading state */}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
+          <div className="text-muted-foreground">Loading video...</div>
+        </div>
+      )}
+      
+      {/* Error state */}
+      {hasError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-destructive/10">
+          <div className="text-center p-4">
+            <div className="text-destructive mb-2">Video failed to load</div>
+            <div className="text-xs text-muted-foreground">{src}</div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 // Local videos - add your actual video paths
 const localVideos = [
@@ -24,6 +102,11 @@ const localVideos = [
     src: '/videos/video_3.mp4',
     title: "Fading Freedoms",
     description: '**Visuals by Julia Hechtl | Sound by Lukas Rieder**\n\nFading Freedoms is a visual exploration of how human rights are gradually erased. Not through sudden destruction, but through slow, unnoticed disappearance. Using light, shadow, and physical materials, this project captures the fragile nature of democracy, free speech and equality. The words fading shadows are strong at first, then dissolving, mirroring the way rights slip away while we are still watching. What remains when everything has faded?',
+  },
+  {
+    src: '/videos/video_5.mp4',
+    title: "Mei Marie",
+    description: '**Concept: Mei Marie**\n**Illustration & Animation: Magdalena Ackerl**\n**Sound Design: Lukas Rieder**\n\nFor MeiMarie, I created the sound design for a series of social media animation videos that quickly and clearly explain the key features of their new app.\nThe tax-saving app by Linde Verlag (Vienna) makes accounting easier and faster than ever – from capturing receipts to getting helpful tips for tax returns.',
   },
 ];
 
@@ -51,6 +134,17 @@ const youtubeVideos = [
 
 const WorkSection = () => {
   const [activeVideoIndex, setActiveVideoIndex] = useState<number | null>(null);
+
+  // Handle video activation with sound management
+  const handleVideoActivate = (index: number) => {
+    // If clicking the same video, don't change anything
+    if (activeVideoIndex === index) {
+      return;
+    }
+    
+    // Set new active video (this will automatically mute the old one via LocalVideo logic)
+    setActiveVideoIndex(index);
+  };
 
   return (
     <section id="work" className="py-16 sm:py-24 md:py-32 bg-secondary/30 min-h-screen">
@@ -85,17 +179,45 @@ const WorkSection = () => {
         <div className="mb-8">
           <h3 className="text-center text-xl font-semibold mb-4 text-muted-foreground">Animated Posters</h3>
           {/* Video grid - 4 portrait videos side by side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-7xl mx-auto">
-            {localVideos.map((video, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-7xl mx-auto mb-8">
+            {localVideos.slice(0, 4).map((video, index) => (
               <LocalVideo
                 key={index}
                 src={video.src}
                 title={video.title}
                 description={video.description}
                 isActive={activeVideoIndex === index}
-                onActivate={() => setActiveVideoIndex(index)}
+                onActivate={() => handleVideoActivate(index)}
               />
             ))}
+          </div>
+
+          {/* Special layout for video_5 */}
+          <div className="max-w-7xl mx-auto mt-12">
+            <h3 className="text-center text-xl font-semibold mb-8 text-muted-foreground">Commercial Sound Design</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Video on the left */}
+              <div className="aspect-video">
+                <SpecialVideo
+                  src={localVideos[4].src}
+                  title={localVideos[4].title}
+                  description={localVideos[4].description}
+                  isActive={activeVideoIndex === 4}
+                  onActivate={() => handleVideoActivate(4)}
+                />
+              </div>
+              
+              {/* Description on the right */}
+              <div className="space-y-4">
+                <h3 className="font-semibold text-2xl">{localVideos[4].title}</h3>
+                <div 
+                  className="text-muted-foreground text-lg leading-relaxed whitespace-pre-line"
+                  dangerouslySetInnerHTML={{
+                    __html: localVideos[4].description.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
