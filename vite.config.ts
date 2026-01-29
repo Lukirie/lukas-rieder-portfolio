@@ -2,9 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/lukas-rieder-portfolio/" : "/",
+export default defineConfig({
+  base: "/", // ✅ ALWAYS "/" with a custom domain
   server: {
     host: "::",
     port: 8080,
@@ -18,4 +17,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+});
