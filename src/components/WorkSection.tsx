@@ -196,8 +196,8 @@ const WorkSection = () => {
           <div className="max-w-7xl mx-auto mt-12">
             <h3 className="text-center text-xl font-semibold mb-8 text-muted-foreground">Commercial Sound Design</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Video on the left */}
-              <div className="aspect-video">
+              {/* Video on the left - very small */}
+              <div className="aspect-video max-w-md mx-auto lg:mx-0">
                 <SpecialVideo
                   src={localVideos[4].src}
                   title={localVideos[4].title}
