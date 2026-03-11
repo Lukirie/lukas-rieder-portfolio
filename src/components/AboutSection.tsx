@@ -25,7 +25,7 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
           {/* Image */}
           <div className="relative order-1 md:order-1">
-            <div className="aspect-[4/5] rounded-lg overflow-hidden bg-secondary max-w-sm mx-auto md:max-w-none">
+            <div className="aspect-[4/5] rounded-lg overflow-hidden bg-secondary max-w-md mx-auto md:max-w-md">
               <img
                 src={images[currentImageIndex]}
                 alt={`Lukas Rieder - Image ${currentImageIndex + 1}`}
@@ -34,17 +34,17 @@ const AboutSection = () => {
               />
             </div>
             {/* Decorative frame */}
-            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full border border-primary/30 rounded-lg -z-10 max-w-sm mx-auto md:max-w-none" />
+            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full border border-primary/30 rounded-lg -z-10 max-w-md mx-auto md:max-w-md" />
           </div>
 
           {/* Content */}
-          <div className="space-y-4 sm:space-y-6 order-2 md:order-2 text-center md:text-left">
+          <div className="space-y-4 sm:space-y-6 order-2 md:order-2 text-left">
             <h2 className="section-heading">
               About <span className="text-gradient">Me</span>
             </h2>
             <div className="space-y-3 sm:space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                I’m Lukas, an audio engineer, sound designer, and live musician based in Graz & Klagenfurt. Being an active musician myself means I know exactly what a performance needs to translate - both for the artist and the audience.
+                I'm Lukas, an audio engineer, sound designer, and live musician based in Graz & Klagenfurt. Being an active musician myself means I know exactly what a performance needs to translate - both for the artist and the audience.
               </p>
               <p>
                My day-to-day work happens in two different worlds. On the live side-mixing FOH and handling event tech - I love the fast pace and the challenge of making a room sound great in real-time.
@@ -57,21 +57,23 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* Skills/Services */}
-            <div className="pt-6 sm:pt-8 space-y-4 max-w-md mx-auto md:max-w-none">
-              {['FOH Engineering', 'Music Production & Mixing', 'Sound Design for Film & Media', 'Brand Audio & Commercial Sound'].map(
-                (skill) => (
-                  <div
-                    key={skill}
-                    className="flex items-center gap-3 text-lg sm:text-xl font-semibold text-foreground justify-center md:justify-start bg-card/50 p-3 rounded-lg border border-border/50"
-                  >
-                    <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                    {skill}
-                  </div>
-                )
-              )}
-            </div>
+            {/* Skills/Services - Full Width */}
           </div>
+        </div>
+        
+        {/* Skills outside container for full width */}
+        <div className="w-full px-4 sm:px-6 pt-8 sm:pt-10 space-y-6">
+          {['FOH Engineering', 'Music Production & Mixing', 'Sound Design for Film & Media', 'Brand Audio & Commercial Sound'].map(
+            (skill) => (
+              <div
+                key={skill}
+                className="flex items-center gap-3 text-lg sm:text-xl font-semibold text-foreground justify-start bg-card/50 p-3 rounded-lg border border-border/50 max-w-4xl mx-auto"
+              >
+                <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                {skill}
+              </div>
+            )
+          )}
         </div>
       </div>
     </section>
