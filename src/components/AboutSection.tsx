@@ -44,31 +44,28 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-3 sm:space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                I am Lukas, 24 years old, a live musician, sound technician and FOH engineer based in Klagenfurt.
-                With experience in live sound, sound design and music production, I approach every project 
-                with precision and a strong hands-on mindset.
+                I’m Lukas, an audio engineer, sound designer, and live musician based in Graz & Klagenfurt. Being an active musician myself means I know exactly what a performance needs to translate - both for the artist and the audience.
               </p>
               <p>
-               I work across live performances, events and studio environments, always focusing on clarity, 
-               reliability and musical intent. My goal is to create sound that connects artists, audiences 
-               and spaces in a natural and meaningful way.
+               My day-to-day work happens in two different worlds. On the live side-mixing FOH and handling event tech - I love the fast pace and the challenge of making a room sound great in real-time.
               </p>
               <p>
-               My background combines hands-on audio work, ongoing studies in Sound Design and a Bachelor
-               in International Marketing and Sales Management. I collaborate with musicians and event 
-               professionals to deliver effective and engaging sound experiences.
+               In the studio, the workflow shifts from instant problem-solving to detailed storytelling. I mix music, but another part of my work is sound design for short films and commercial campaigns. This is exactly where my Bachelor's in International Marketing and Sales comes into play. When I work on brand audio or advertising, I don't just look at the frequencies. I understand how sound drives a message, shapes a brand's identity, and actually connects with a target audience.
+              </p>
+              <p>
+               Whether I'm standing behind a live console or sitting between studio monitors, my mindset doesn't change. I stay calm, put the work in, and keep the creative intent front and center.
               </p>
             </div>
 
             {/* Skills/Services */}
-            <div className="pt-4 sm:pt-6 grid grid-cols-2 gap-3 sm:gap-4 max-w-sm mx-auto md:max-w-none">
-              {['FOH Engineering', 'Mixing', 'Recording', 'Production', 'Sound Design'].map(
+            <div className="pt-6 sm:pt-8 space-y-4 max-w-md mx-auto md:max-w-none">
+              {['FOH Engineering', 'Music Production & Mixing', 'Sound Design for Film & Media', 'Brand Audio & Commercial Sound'].map(
                 (skill) => (
                   <div
                     key={skill}
-                    className="flex items-center gap-2 text-xs sm:text-sm text-foreground justify-center md:justify-start"
+                    className="flex items-center gap-3 text-lg sm:text-xl font-semibold text-foreground justify-center md:justify-start bg-card/50 p-3 rounded-lg border border-border/50"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                     {skill}
                   </div>
                 )

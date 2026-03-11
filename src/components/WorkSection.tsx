@@ -116,19 +116,19 @@ const youtubeVideos = [
     type: 'youtube' as const,
     url: 'https://youtu.be/neftf2eH18c',
     title: 'PANDEMONIUM - Klanglicht 2025',
-    description: '**Composition: Lukas Rieder, Anna Mauthner**\n**Stereo/Surround Mix: Lukas Rieder**\n\n**Visuals: Magdalena Ackerl, Felix Prinz, Tobias Schnittenkopf, Florian Thausing, Tanja Kobler**\n\nThere are moments when routine becomes a cage we built ourselves. We chase rhythm, control, and comfort, until something inside begins to shift. What follows is both chaos and liberation — the quiet realization that losing balance is also how we grow. We created the soundtrack for a sound installation at the Klanglicht Festival Graz, realized inside a church with challenging acoustics.',
+    description: '**Composition: Lukas Rieder, Anna Mauthner**\n**Stereo/Surround Mix: Lukas Rieder**\n\n**Visuals: Magdalena Ackerl, Felix Prinz, Tobias Schnittenkopf, Florian Thausing, Tanja Kobler**\n\nBeing part of the Klanglicht Festival 2025 in Graz was a standout project for me. We created the soundtrack for a spatial sound installation inside a church - an environment that pushed us to work with some very challenging acoustics.\n\nThe concept behind the piece explores the tension between order and chaos. There are moments when routine becomes a cage we built ourselves. We chase rhythm, control, and comfort, until something inside begins to shift. What follows is both chaos and liberation - the quiet realization that losing balance is also how we grow.',
   },
   {
     type: 'youtube' as const,
     url: 'https://www.youtube.com/watch?v=BAYFrHkABJs',
     title: 'Standby - Flavor Amp',
-    description: '**Writing: Lukas Kotschnig, Lukas Rieder, Alex Glantschnig, Clemens Bärnthaler**\n**Recording, Mixing: Lukas Rieder**\n\nStandby was the first production realized in our self-built recording studio. I was responsible for the complete music production, including recording and mixing. The track is part of a rock concept album of my Band FLAVOR AMP about addiction and dependency. The lyric video was created by Jacob Mikula (@meaku.arts).',
+    description: '**Writing: Lukas Kotschnig, Lukas Rieder, Alex Glantschnig, Clemens Bärnthaler**\n**Recording & Mixing: Lukas Rieder**\n\nStandby was the first production realized in our self-built recording studio. I was responsible for the complete music production, including recording and mixing. The track is part of a rock concept album of my band FLAVOR AMP about addiction and dependency. The lyric video was created by Jacob Mikula (@meaku.arts).',
   },
   {
     type: 'youtube' as const,
     url: 'https://www.youtube.com/watch?v=SWNIiu4zLVw',
     title: "'Kindred' for The North Face",
-    description: 'Talents: @katarina.ptg @prinzik @crazy.ass.guy\nDirector: @noahbonevie\nDoP: @peter.verhounik\nGaffer: @a_man_called_aman\nPAs: @katarismus @http_magda\nEdit: @mariosahbi & @noahbonevie\nColor: @peter.verhounik\n\nMusic: Gregor Schmitz\nSound Design: Lukas Rieder\n\nSpec movie for The North Face',
+    description: 'Spec movie for The North Face\n\nTalents:@katarina.ptg @prinzik @crazy.ass.guy\nDirector: @noahbonevie\nDoP: @peter.verhounik\nGaffer: @a_man_called_aman\nPAs: @katarismus @http_magda\nEdit: @mariosahbi & @noahbonevie\nColor: @peter.verhounik\n\nMusic: Gregor Schmitz\nSound Design: Lukas Rieder',
   },
 ];
 
@@ -177,7 +177,7 @@ const WorkSection = () => {
 
         {/* Local videos section */}
         <div className="mb-8">
-          <h3 className="text-center text-xl font-semibold mb-4 text-muted-foreground">Animated Posters</h3>
+          <h3 className="text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-foreground">Animated Posters</h3>
           {/* Video grid - 4 portrait videos side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-7xl mx-auto mb-8">
             {localVideos.slice(0, 4).map((video, index) => (
@@ -194,7 +194,7 @@ const WorkSection = () => {
 
           {/* Special layout for video_5 */}
           <div className="max-w-7xl mx-auto mt-12">
-            <h3 className="text-center text-xl font-semibold mb-8 text-muted-foreground">Commercial Sound Design</h3>
+            <h3 className="text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-foreground">Commercial Sound Design</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Video on the left - very small */}
               <div className="aspect-video max-w-md mx-auto lg:mx-0">
