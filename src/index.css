@@ -1,4 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+/* ==========================================
+   SPACE GROTESK
+   ========================================== */
+
+/* Space Grotesk - 400 (Regular) */
+@font-face {
+  font-display: swap;
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
+}
+
+/* Space Grotesk - 500 (Medium) */
+@font-face {
+  font-display: swap;
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/space-grotesk-v22-latin-500.woff2') format('woff2');
+}
+
+/* Space Grotesk - 600 (Semi-Bold) */
+@font-face {
+  font-display: swap;
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/space-grotesk-v22-latin-600.woff2') format('woff2');
+}
+
+/* Space Grotesk - 700 (Bold) */
+@font-face {
+  font-display: swap;
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/space-grotesk-v22-latin-700.woff2') format('woff2');
+}
+
+/* ==========================================
+   INTER
+   ========================================== */
+
+/* Inter - 300 (Light) */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./fonts/inter-v20-latin-300.woff2') format('woff2');
+}
+
+/* Inter - 400 (Regular) */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/inter-v20-latin-regular.woff2') format('woff2');
+}
+
+/* Inter - 500 (Medium) */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/inter-v20-latin-500.woff2') format('woff2');
+}
+
+/* Inter - 600 (Semi-Bold) */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/inter-v20-latin-600.woff2') format('woff2');
+}
 
 @tailwind base;
 @tailwind components;
